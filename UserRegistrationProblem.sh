@@ -44,7 +44,19 @@ function mobileNumber()
 		echo "Invalid mobile number"
 	fi
 }
+function password()
+{
+	pattern="^[a-zA-Z]{8,}$"
+	read -p "Enter the password=" pwd
+	if [[ $pwd =~ $pattern ]]
+	then
+		echo "Password entered successfully"
+	else
+		echo "Password entered is invalid"
+	fi
+}
 firstName
 lastName
 eMail
 mobileNumber
+password
