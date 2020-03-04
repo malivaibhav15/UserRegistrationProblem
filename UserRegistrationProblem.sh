@@ -46,9 +46,9 @@ function mobileNumber()
 }
 function password()
 {
-	pattern="^[a-zA-Z]{8,}$"
+	pattern="^[a-zA-Z0-9]{8,}$"
 	read -p "Enter the password=" pwd
-	if [[ $pwd =~ $pattern && $pwd == *[[:upper:]]* ]]
+	if [[ $pwd =~ $pattern && $pwd == *[[:upper:]]* && $pwd == *[[:digit:]]* ]]
 	then
 		echo "Password entered successfully"
 	else
