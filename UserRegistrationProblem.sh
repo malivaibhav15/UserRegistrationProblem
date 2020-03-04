@@ -33,6 +33,18 @@ function eMail()
 		echo "e-Mail id is not valid"
 	fi
 }
+function mobileNumber()
+{
+	pattern="^[0-9]{2}[ ][0-9]{10}$"
+	read -p "Enter the mobile number=" mobile
+	if [[ $mobile =~ $pattern ]]
+	then
+		echo "Valid mobile number"
+	else
+		echo "Invalid mobile number"
+	fi
+}
 firstName
 lastName
 eMail
+mobileNumber
