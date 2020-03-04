@@ -48,7 +48,7 @@ function password()
 {
 	pattern="^[a-zA-Z]{8,}$"
 	read -p "Enter the password=" pwd
-	if [[ $pwd =~ $pattern ]]
+	if [[ $pwd =~ $pattern && $pwd == *[[:upper:]]* ]]
 	then
 		echo "Password entered successfully"
 	else
