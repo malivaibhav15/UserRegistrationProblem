@@ -24,7 +24,7 @@ function lastName()
 }
 function eMail()
 {
-	pattern="^[a-z]{1,}([.+-_]?[a-z0-9]{1,})?[@]{1}[a-z0-9]{1,}[.]{1}[a-z]{1,}([.]?[a-z]{2,})?$"
+	pattern="^[a-z]{1,}([.+-_]?[a-z0-9]{1,})?[@]{1}[a-z0-9]{1,}[.]{1}[a-z]{2,}([.]?[a-z]{2,})?$"
 	read -p "Enter the mail-id=" email
 	if [[ $email =~ $pattern ]]
 	then
@@ -46,17 +46,21 @@ function mobileNumber()
 }
 function password()
 {
-	pattern="^[a-zA-Z0-9]{8,}$"
 	read -p "Enter the password=" pwd
-	if [[ $pwd =~ $pattern && $pwd == *[[:upper:]]* && $pwd == *[[:digit:]]* ]]
+	if [[ ${#pwd} -ge 8 ]]
 	then
-		echo "Password entered successfully"
+		if [[ ` echo "$pwd" | grep "[A-Z]" | grep "[0-9]" ` ]]
+		then
+			echo "Password entered is valid"
+		else
+			echo "Password entered is invalid"
+		fi
 	else
-		echo "Password entered is invalid"
+		echo "User should have to enter atleast 8 charecter"
 	fi
 }
-firstName
-lastName
-eMail
-mobileNumber
+#firstName
+#lastName
+#eMail
+#mobileNumber
 password
