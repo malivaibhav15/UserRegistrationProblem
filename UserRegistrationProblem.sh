@@ -49,7 +49,9 @@ function password()
 	read -p "Enter the password=" pwd
 	if [[ ${#pwd} -ge 8 ]]
 	then
-		if [[ ` echo "$pwd" | grep "[A-Z]" | grep "[0-9]" ` ]]
+		result=` echo "$pwd" | grep "[A-Z]" | grep "[0-9]" | grep -o "[^a-zA-Z0-9]" `
+		length=${#result}
+		if [[ $length -eq 1 ]]
 		then
 			echo "Password entered is valid"
 		else
@@ -59,8 +61,8 @@ function password()
 		echo "User should have to enter atleast 8 charecter"
 	fi
 }
-#firstName
-#lastName
-#eMail
-#mobileNumber
+firstName
+lastName
+eMail
+mobileNumber
 password
